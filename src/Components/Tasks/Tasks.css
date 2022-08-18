@@ -1,0 +1,48 @@
+.item_div{
+    width:590px;
+    height:50px;
+}
+#todo_text_div{
+    width:84%;
+    height:100%;
+    line-height: 38px;
+    display: inline-block;
+    vertical-align: middle;
+    word-wrap: break-word;
+    font-size:x-large;
+    color: rgb(88, 87, 87);
+}
+#edit_input{
+    width:99%;
+    height: 88%;
+    font-size: large;
+}
+#complete_div{
+    width:8%;
+    height:100%;
+    display:inline-block;
+    vertical-align: middle;
+}
+#delete_div{
+    width:8%;
+    display: inline-block;
+    vertical-align: middle;
+    height:100%;
+}
+#delete_icon{
+    height:80%;
+    margin-left: 18px;
+    margin-top:4px;
+    color:rgb(166, 43, 43);
+}
+.complete_icon{
+    height:80%;
+    margin-left: 12px;
+    margin-top: 2px;
+}
+.complete{
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: grey;
+    opacity:25%;
+}

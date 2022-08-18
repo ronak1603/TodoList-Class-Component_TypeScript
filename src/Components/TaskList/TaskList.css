@@ -1,0 +1,80 @@
+#todo_div {
+  width: 600px;
+  margin-top: 5px;
+}
+
+#first {
+  width: 600px;
+}
+
+.button {
+  display: inline-block;
+  vertical-align: middle;
+}
+#remaining {
+  width: 33%;
+  margin-left: 5px;
+}
+#all_div {
+  width: 32px;
+  margin-left: 10px;
+}
+.all_button {
+  border: none;
+  background-color: white;
+  color:grey;
+}
+#active_div {
+  width: 9%;
+}
+.active_button {
+  color:grey;
+  border: none;
+  background-color: white;
+}
+#completed_div {
+  width: 12%;
+}
+.completed_button {
+  color:grey;
+  border: none;
+  background-color: white;
+}
+#clear_div {
+  width: 20%;
+  margin-left: 66px;
+}
+#clear_button {
+  color:rgb(117, 115, 115);
+  border: none;
+  background-color: white;
+}
+#button_div {
+  width: 600px;
+  color:grey;
+  box-shadow: inset;
+}
+#overall_div {
+  width: 600px;
+  background-color: white;
+  margin-left: 480px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  box-shadow: 1px 2px 2px lightgray;
+  
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+hr {
+  opacity: 25%;
+}
+
+.clicked{
+    border-color: rgb(244, 170, 170);
+    background-color: white;
+    border-width:1px ;
+}
