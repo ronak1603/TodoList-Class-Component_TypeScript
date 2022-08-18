@@ -33,8 +33,6 @@ class App extends React.Component {
             </Routes>
           </div>
         </Router>
-        {/* <TodoHeading />
-          <TaskList /> */}
       </div>
     );
   }
