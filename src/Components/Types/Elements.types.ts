@@ -1,6 +1,6 @@
 export type InputProps = {
-  onSubmit: (data: string) => void;
-  onAllComplete: (check: boolean) => void;
+  addTodo: (data: string) => void;
+  allComplete: (check: boolean) => void;
 };
 
 export type InputState = {
@@ -11,9 +11,9 @@ export type TasksProps = {
   key: string;
   id: string;
   isComplete: boolean;
-  onDelete: (id: string) => void;
-  onComplete: (id: string) => void;
-  onEdit: (newdata: string, id: string) => void;
+  deleteTodo: (id: string) => void,
+  completeTodo: (id: string) => void,
+  editData: (id: string, data: string) => void,
   text: string;
 };
 
@@ -28,15 +28,13 @@ export type showArr = {
   isComplete: boolean;
 }[];
 
-export type TaskListProps = {};
-
-export type TaskListState = {
+export type TaskListProps = {
   todos: {
-    text: string;
-    id: string;
-    isComplete: boolean;
-  }[];
-  show: string;
+    text: string,
+    id: string,
+    isComplete: boolean,
+  }[],
+  filter: string;
+  toggleTodo: (toggle: string) => void;
+  clearCompleted: () => void;
 };
-
-
