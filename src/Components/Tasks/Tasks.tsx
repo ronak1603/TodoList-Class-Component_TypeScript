@@ -1,13 +1,17 @@
 import React from "react";
+import { Dispatch } from 'redux';
+import { connect } from "react-redux";
 import "./Tasks.css";
 import { BsCircle } from "react-icons/bs";
-import {ImCross} from "react-icons/im";
+import { ImCross } from "react-icons/im";
 import { BsCheckCircle } from "react-icons/bs";
 import { TasksProps } from "../Types/Elements.types";
 import { TasksState } from "../Types/Elements.types";
+import { deleteTodo, completeTodo, editData } from "../../Store/ActionCreators/index"
 
-class Tasks extends React.Component<TasksProps,TasksState> {
-  constructor(props:TasksProps) {
+
+class Tasks extends React.Component<TasksProps, TasksState> {
+  constructor(props: TasksProps) {
     super(props);
     this.state = {
       edit: false,
@@ -16,24 +20,24 @@ class Tasks extends React.Component<TasksProps,TasksState> {
   }
 
   removeHandler = () => {
-    this.props.onDelete(this.props.id);
+    this.props.deleteTodo(this.props.id);
   };
 
   completeHandler = () => {
-    this.props.onComplete(this.props.id);
+    this.props.completeTodo(this.props.id);
   };
 
   editTask = () => {
     this.setState({ edit: true });
   };
 
-  editDataHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
+  editDataHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ data: e.target.value });
   };
 
-  editDataSubmit = (e:React.KeyboardEvent<HTMLInputElement>) => {
+  editDataSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      this.props.onEdit(this.state.data, this.props.id);
+      this.props.editData(this.props.id, this.state.data);
       this.setState({ edit: false });
     }
   };
@@ -71,7 +75,9 @@ class Tasks extends React.Component<TasksProps,TasksState> {
             {this.state.edit ? input : this.props.text}
           </div>
           <div id="delete_div"  >
-            <ImCross id="delete_icon" onClick={this.removeHandler}/>
+            <ImCross id="delete_icon"
+              onClick={this.removeHandler}
+            />
           </div>
         </div>
         <hr></hr>
@@ -80,5 +86,13 @@ class Tasks extends React.Component<TasksProps,TasksState> {
   }
 }
 
-export default Tasks;
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    deleteTodo: (id: string) => dispatch(deleteTodo(id)),
+    completeTodo: (id: string) => dispatch(completeTodo(id)),
+    editData: (id: string, data: string) => dispatch(editData(id, data)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Tasks);
 
